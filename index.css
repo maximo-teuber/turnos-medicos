@@ -1,0 +1,61 @@
+:root{
+  --bg:#0b1220;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--border:#1f2937;
+  --primary:#22d3ee;--primary-600:#0891b2;--ok:#10b981;--err:#ef4444;
+  --available:#0b1220; --disabled:#0a0f1a; --selected:#073642;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Arial}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);background:#111827}
+.brand{font-weight:700;color:var(--primary)}
+.actions{display:flex;gap:10px;align-items:center}
+.btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--primary);color:#001219;font-weight:700;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--text)}
+.wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.grid-3{grid-template-columns:260px 260px 1fr}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr}}
+
+.layout{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+@media(max-width:1100px){.layout{grid-template-columns:1fr}}
+
+.field{display:flex;flex-direction:column;gap:6px}
+label{color:var(--muted)}
+select{background:#0b1220;border:1px solid var(--border);border-radius:10px;color:var(--text);padding:10px}
+
+.slots{display:flex;flex-wrap:wrap;gap:8px;min-height:44px}
+.slot{border:1px solid var(--border);background:#0b1220;color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}
+.slot.sel{outline:2px solid var(--primary)}
+.slot.disabled{opacity:.45;pointer-events:none}
+
+.actions-row{display:flex;align-items:center;gap:12px;margin-top:12px}
+.primary{background:var(--primary);color:#001219;border-color:transparent}
+.primary:disabled{opacity:.5;cursor:not-allowed}
+.msg{font-size:14px;color:var(--muted)}
+.msg.ok{color:var(--ok)} .msg.err{color:var(--err)}
+
+/* Calendario */
+.cal-wrap{margin-bottom:12px}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.cal-title{font-weight:700}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-week div{font-size:12px;color:var(--muted);text-align:center}
+.cal-days .day{
+  height:42px;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:var(--disabled); color:#6b7280; user-select:none;
+}
+.day.available{ background:var(--available); color:var(--text); cursor:pointer; }
+.day.available:hover{outline:2px solid var(--primary)}
+.day.selected{outline:2px solid var(--primary); background:var(--selected)}
+.day.muted{opacity:.6}
+.cal-hint{margin-top:8px;color:var(--muted);font-size:13px}
+
+/* Tabla turnos (columna derecha) */
+.table-wrap{overflow:auto;max-height:520px;border:1px solid var(--border);border-radius:12px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:middle}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid var(--border);font-size:12px}
+.badge.ok{border-color:#064e3b;color:#34d399}
+.badge.warn{border-color:#7c2d12;color:#fb923c}
+.row-actions{display:flex;gap:8px;flex-wrap:wrap}
+.side h3{margin-top:0}
